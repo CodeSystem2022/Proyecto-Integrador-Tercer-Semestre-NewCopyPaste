@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card border-primary mb-10">
+            <div class="card-header">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="card-title">Configuraciones del Sistema</h3>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-body">
+
+                <table class="table table-responsiv">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Titulo</th>
+                            <th scope="col">Descripcion</th>
+                            <th scope="col">Valor</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for configuracion in listaConfiguraciones %}
+
+
+
+                        <tr>
+                            <th scope="row"> {{ configuracion.id }}</th>
+                            <th>{{ configuracion.titulo }}</th>
+                            <td> {{ configuracion.descripcion }}</td>
+                            <td> {{ configuracion.valor }}</td>
+
+                            
+                        </tr>
+
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+
+        <div class="card text-white bg-info">
+            <div class="card-header">Información</div>
+            <div class="card-body">
+                <h4 class="card-title">Configuraciones</h4>
+                <p class="card-text">Aqui podras configurar el sistema de cocheras y todos los parametros que necesites.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

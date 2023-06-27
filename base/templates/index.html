@@ -1,0 +1,59 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1> {{title}} </h1>
+<h3> {{title2}} </h3>
+
+<div class="row">
+    <div class="col-md-6">
+        <img src="{% static 'fmj-uojA_400x400.jpg' %}" class="img-fluid" alt="...">
+
+    </div>
+    <div class="col-md-6">
+
+        <br><br><br>
+        <h1> NEW COPY PASTE</h1>
+
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Nombres</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>VERGUECIO</td>
+                    <td>Sebastian</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>MESAS</td>
+                    <td>Francisco</td>
+                </tr>
+        
+                <tr>
+                    <th scope="row">3</th>
+                    <td>GIMENEZ</td>
+                    <td>Matias</td>
+                </tr>
+        
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+<h5> <strong>Django</strong> </h5>
+<p>Django es un framework de desarrollo web de código abierto, escrito en Python, que respeta el patrón de diseño conocido como modelo–vista–controlador (MVC). Fue desarrollado originalmente para gestionar páginas web orientadas a noticias de la World Company de Lawrence, Kansas, y fue liberada al público bajo una licencia BSD en julio de 2005; el framework fue nombrado en alusión al guitarrista de jazz gitano Django Reinhardt.</p>
+
+
+</div>
+{% endblock %}
