@@ -1,0 +1,169 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card border-primary mb-10">
+            <div class="card-header">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="card-title">Datos Cliente</h3>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-body">
+                <form action="{% url 'comprobante' %}" class="row g-3 needs-validation" method="post" novalidate>
+                    {% csrf_token %}
+                    <input type="hidden" name="costo" value="{{ ingreso.costo }}">
+                    <input type="hidden" name="tiempo" value="{{ ingreso.tiempo }}">
+                    <input type="hidden" name="idCochera" value="{{ ingreso.idCochera }}">
+                    <input type="hidden" name="tipo" value="{{ ingreso.tipo }}">
+                    <input type="hidden" name="dominio" value="{{ ingreso.dominio }}">
+                    <input type="hidden" name="fechaIngreso" value="{{ ingreso.fechaIngreso }}">
+                    <input type="hidden" name="fechaSalida" value="{{ ingreso.fechaSalida }}">
+                    <input type="hidden" name="estadia" value="{{ ingreso.estadia }}">
+                    <input type="hidden" name="idIngreso" value="{{ ingreso.id }}">
+                    
+                    
+                    <div class="col-md-12">
+                        <label for="apellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido"
+                            value="" required>
+                        <div class="valid-feedback">
+                            Se ve bien!
+                        </div>
+                        <div class="invalid-feedback">
+                            Debe ingresar un apellido.
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="nombres" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre" value=""
+                            required>
+                        <div class="valid-feedback">
+                            Se ve bien!
+                        </div>
+                        <div class="invalid-feedback">
+                            Debe ingresar un nombre.
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label for="telefono" class="form-label">Telefono</label>
+                        <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Telefono"
+                            value="">
+                        <div class="valid-feedback">
+                            Este campo es opcional.
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Generar Comprobante</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start disabled text-center">
+                <div class="d-flex w-100 justify-content-between ">
+                    <h5 class="mb-1 ">Detalles de la Estadia</h5>
+                </div>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Fecha y Hora de Ingreso</h5>
+                    <p class="mb-1">{{ ingreso.fechaIngreso }}</p>
+                </div>
+
+            </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between ">
+                    <h5 class="mb-1">Tiempo Transcurrido</h5>
+                    <p class="mb-1">{{ ingreso.estadia }} turno </p>
+                </div>
+
+            </a>
+
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between ">
+                    <h5 class="mb-1">Tipo de Vehiculo</h5>
+                    <p class="mb-1">{{ ingreso.tipo }}</p>
+                </div>
+
+            </a>
+
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-between ">
+                    <h5 class="mb-1">Dominio Vehiculo</h5>
+                    <p class="mb-1">{{ ingreso.dominio }}</p>
+                </div>
+
+            </a>
+            <a href="#" class="list-group-item list-group-item-action flex-column align-items-start text-center">
+                <div class="d-flex w-100 justify-content-between ">
+                    <h5 class="mb-1 ">Cocheras Utilizada</h5>
+                    <p class="mb-1">{{ ingreso.idCochera }}</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="card text-white bg-danger ">
+            
+            <div class="card-body">
+                <h4 class="card-title">TOTAL A PAGAR</h4>
+                <h2 class="card-text">$ {{ ingreso.costo }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-header">Información</div>
+            <div class="card-body">
+                <h4 class="card-title">Salida de Vehiculos</h4>
+                <p class="card-text">Aqui se realiza la salida de vehiculos, se procederá a cobrar el tiempo de estadia
+                    del vehiculo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+
+
+{% endblock %}

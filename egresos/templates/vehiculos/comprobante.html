@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="card text-white bg-primary mb-3" >
+            <div class="card-body">
+                <h4 class="card-title">COMPROBANTE</h4>
+                
+            </div>
+        </div>
+        <div class="card  bg-secondary mb-3" >
+            <div class="card-body">
+                <h4 class="card-title text-white">Detalle del Comprobante</h4>
+                <p class="card-text"> <strong>Apellidos y Nombres:</strong>  {{ DatosComprobante.apellido }} {{ DatosComprobante.nombre }}</p>
+                <p class="card-text"><strong>Telefono:</strong>  {{ DatosComprobante.telefono }}</p>
+                <p class="card-text"><strong>Tipo Vehiculo:</strong>  {{ DatosComprobante.tipo }}</p>
+                <p class="card-text"><strong>Dominio:</strong>  {{ DatosComprobante.dominio }}</p>
+                <p class="card-text"><strong>Cochera:</strong>  {{ DatosComprobante.cochera }}</p>
+                <p class="card-text"><strong>Fecha Salida:</strong>  {{ DatosComprobante.fechaSalida }}</p>
+                <p class="card-text"><strong>Tiempo Transcurrido:</strong>  {{ DatosComprobante.estadia }} Turnos</p>
+                <hr>
+                <h3 class="card-text"> <strong>Total Pagado: $ {{ DatosComprobante.costo }}</strong></h3>
+
+            </div>
+        </div>
+        <div class="card text-white bg-success mb-3" >
+            <div class="card-body">
+                <h4 class="card-title">PAGO REGISTRADO</h4>
+                <p class="card-text">Su pago fue realizado con exito.</p>
+            </div>
+        </div>
+     
+
+    </div>
+
+    <div class="col-md-3">
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}

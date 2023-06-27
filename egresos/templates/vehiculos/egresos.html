@@ -1,0 +1,81 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="card border-primary mb-10">
+            <div class="card-header">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="card-title">Nueva Salida</h3>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="card-body">
+                <table class="table table-responsiv">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tipo Vehiculo</th>
+                            <th scope="col">Dominio</th>
+                            <th scope="col">Cochera</th>
+                            <th scope="col">Fecha y Hora Ingreso</th>
+
+                            <th scope="col">Tiempo Estadia</th>
+                            <th scope="col">Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for ingreso in ingresos %}
+
+
+
+                        <tr>
+                            <th scope="row"> {{ ingreso.id }}</th>
+                            <th>{{ ingreso.tipo }}</th>
+                            <td> {{ ingreso.dominio }}</td>
+                            <td> {{ ingreso.idCochera }}</td>
+                            <td> {{ ingreso.fechaIngreso }} </td>
+
+
+                            <td>{{ ingreso.tiempo }} Turno</td>
+
+
+                            <td>
+                                <a href="{% url 'cobrar' ingreso.id %}" class="btn btn-primary btn-sm">Cobrar </a>
+                                
+                            </td>
+                        </tr>
+
+                        {% endfor %}
+
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-white bg-info">
+            <div class="card-header">Información</div>
+            <div class="card-body">
+                <h4 class="card-title">Salida de Vehiculos</h4>
+                <p class="card-text">Aqui se realiza la salida de vehiculos, se procederá a cobrar el tiempo de estadia
+                    del vehiculo.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

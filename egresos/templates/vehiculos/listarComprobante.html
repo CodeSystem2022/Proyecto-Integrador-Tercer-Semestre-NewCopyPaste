@@ -1,0 +1,76 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="card border-primary mb-10">
+            <div class="card-header">
+        
+                <div class="row">
+                   
+                        <h3 class="card-title">Listado de  Comprobantes Emitidos</h3>
+                  
+                    
+                </div>
+        
+            </div>
+            <div class="card-body">
+        
+                <table class="table table-responsiv">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tipo Vehiculo</th>
+                            <th scope="col">Dominio</th>
+                            <th scope="col">Cochera</th>
+                            <th scope="col">Tiempo Estadia</th>
+                            <th scope="col">Pago</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        {% for ingreso in comprobantes %}
+        
+        
+        
+                        <tr>
+                            <th scope="row"> {{ ingreso.id }}</th>
+                            <th>{{ ingreso.tipo }}</th>
+                            <td> {{ ingreso.dominio }}</td>
+                            <td> {{ ingreso.cochera }}</td>
+                            <td> {{ ingreso.estadia }} Turno</td>
+                            <td>$ {{ ingreso.costo }}</td>
+        
+                           
+                        </tr>
+        
+                        {% endfor %}
+        
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-3">
+       
+            <div class="card text-white bg-info">
+                <div class="card-header">Información</div>
+                <div class="card-body">
+                    <h4 class="card-title">Comprobantes Emitidos</h4>
+                    <p class="card-text">Aqui se listan la totalidad de los comprobantes emitidos por el sistema.</p>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
