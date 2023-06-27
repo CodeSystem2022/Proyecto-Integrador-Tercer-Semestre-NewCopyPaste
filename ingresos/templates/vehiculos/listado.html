@@ -1,0 +1,80 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="card border-primary mb-10">
+            <div class="card-header">
+        
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="card-title">Listado de vehiculos</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <a href="{% url 'ingresoVehiculos' %}" class="btn btn-primary float-right">Nuevo Ingreso</a>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="card-body">
+        
+                <table class="table table-responsiv">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tipo Vehiculo</th>
+                            <th scope="col">Dominio</th>
+                            <th scope="col">Cochera</th>
+                            <th scope="col">Fecha y Hora Ingreso</th>
+                            
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        
+                        {% for ingreso in listaIngresos %}
+        
+        
+        
+                        <tr>
+                            <th scope="row"> {{ ingreso.id }}</th>
+                            <th>{{ ingreso.tipo }}</th>
+                            <td> {{ ingreso.dominio }}</td>
+                            <td> {{ ingreso.idCochera }}</td>
+                            <td> {{ ingreso.fechaIngreso }}</td>
+                            
+        
+                            <td>
+                                <a href="{% url 'EliminarVehiculos' ingreso.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                            </td>
+                        </tr>
+        
+                        {% endfor %}
+        
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-md-3">
+       
+            <div class="card text-white bg-info">
+                <div class="card-header">Información</div>
+                <div class="card-body">
+                    <h4 class="card-title">vehiculos</h4>
+                    <p class="card-text">Aqui se listan los vehiculos que se encuentran en las cocheras.</p>
+                </div>
+            
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
