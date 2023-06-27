@@ -1,6 +1,11 @@
 # Proyecto-Integrador-Tercer-Semestre-NewCopyPaste
 Aqui encontraras el proyecto integrador del Tercer Semestre de la Carrera Tecnicatura en Programación - UTN San Rafael
 
+El proyecto esta escrito el Python, utilizando el framework Django, instrucciones para su instalacion  <a href="https://docs.djangoproject.com/en/4.2/topics/install/#installing-official-release">Aqui</a>, ya la con las librerias instaladas se ejecuta el proyecto :  
+-> python manage.py runserver
+
+
+
 
 
 
